@@ -1,6 +1,6 @@
 //SECTION - STATE
 
-let bank = 500
+let bank = 10000
 
 let clickIncrease = 1
 
@@ -12,13 +12,15 @@ let clickUpgrades = [
     name: 'pickaxe',
     price: 50,
     quantity: 0,
-    bonus: 1
+    bonus: 1,
+    totalBonus: 0
   },
   {
     name: 'drill',
     price: 250,
     quantity: 0,
-    bonus: 1
+    bonus: 5,
+    totalBonus: 0
   }
 ];
 
@@ -27,13 +29,15 @@ let autoUpgrades = [
     name: 'astronaut',
     price: 1000,
     quantity: 0,
-    bonus: 20
+    bonus: 20,
+    totalBonus: 0
   },
   {
     name: 'rover',
-    price: 50000,
+    price: 10000,
     quantity: 0,
-    bonus: 20
+    bonus: 100,
+    totalBonus: 0
   }
 ];
 
@@ -47,23 +51,49 @@ function mine() {
   console.log('Cheese increase:', clickIncrease, 'Cheese Total:', bank)
 }
 
+function returnClickUpgrade(upgradeName) {
+  let foundUpgrade = clickUpgrades.find(upgrade => upgrade.name == upgradeName)
+  return foundUpgrade
+}
+
+function returnAutoUpgrade(upgradeName) {
+  let foundUpgrade = autoUpgrades.find(upgrade => upgrade.name == upgradeName)
+  return foundUpgrade
+}
+
+
 function getUpgrade(type, upgradeName) {
   let foundUpgrade = type.find(upgrade => upgrade.name == upgradeName)
-  console.log(foundUpgrade)
-  buyUpgrade(foundUpgrade)
+  buyUpgrade(type, foundUpgrade)
 }
 
-function buyUpgrade(item) {
+function buyUpgrade(type, item) {
   if (bank < item.price) {
+    window.alert('You do not have enough money for that purchase.')
     return
   }
+
   item.quantity++
-  item.price *= 1.2
-  console.log(item);
-}
+  bank -= item.price
+  let updatedPrice = item.price * 1.2
+  item.price = updatedPrice.toFixed()
+  item.totalBonus += item.bonus
+  drawCheeseTotal()
+  console.log(type)
+  console.log(item)
 
-function addToUpgradeValue() {
+  if (type == clickUpgrades) {
+    clickIncrease += item.bonus
+    console.log('click increase', clickIncrease)
+    drawClickUpgradeStats(item.name)
+    drawClickIncrease()
+    return
+  }
 
+  autoIncrease += item.bonus
+  console.log('auto increase', autoIncrease)
+  drawAutoUpgradeStats(item.name)
+  drawAutoIncrease()
 }
 
 //!SECTION
@@ -88,8 +118,40 @@ function drawAutoIncrease() {
   autoIncreaseParagraph.innerText = `+${autoIncrease.toString()}`
 }
 
+
+function drawClickUpgradeStats(type) {
+  const upgradeNameElem = document.getElementById(type)
+  const upgradeNameSpans = upgradeNameElem.querySelectorAll('span')
+
+  const upgradeQuantityElem = upgradeNameSpans[0]
+  const upgradeTotalBonusElem = upgradeNameSpans[upgradeNameSpans.length - 1]
+
+  const foundUpgrade = returnClickUpgrade(type)
+
+  upgradeQuantityElem.innerText = foundUpgrade.quantity.toString()
+  upgradeTotalBonusElem.innerText = foundUpgrade.totalBonus.toString()
+}
+
+function drawAutoUpgradeStats(type) {
+  const upgradeNameElem = document.getElementById(type)
+  const upgradeNameSpans = upgradeNameElem.querySelectorAll('span')
+
+  const upgradeQuantityElem = upgradeNameSpans[0]
+  const upgradeTotalBonusElem = upgradeNameSpans[upgradeNameSpans.length - 1]
+
+  const foundUpgrade = returnAutoUpgrade(type)
+
+  upgradeQuantityElem.innerText = foundUpgrade.quantity.toString()
+  upgradeTotalBonusElem.innerText = foundUpgrade.totalBonus.toString()
+}
+
+
 //!SECTION
 
 //SECTION - PAGE LOAD
+
+drawCheeseTotal()
+
+setInterval()
 
 //!SECTION
