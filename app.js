@@ -2,20 +2,37 @@
 
 let cheese = 0
 
-let cheeseIncrease = 1
+let clickIncrease = 1
+
+let autoIncrease = 0
 
 //!SECTION
 
 //SECTION - LOGIC
 
 function mine() {
-  cheese += cheeseIncrease
-  console.log('Cheese increase:', cheeseIncrease, 'Cheese Total:', cheese)
+  cheese += clickIncrease
+  drawCheeseTotal()
+  console.log('Cheese increase:', clickIncrease, 'Cheese Total:', cheese)
 }
 
 //!SECTION
 
 //SECTION - DRAW
+
+function drawCheeseTotal() {
+  const cheeseElem = document.getElementById('cheese')
+  const cheeseValue = cheeseElem.querySelector('p')
+  cheeseValue.innerText = `Cheese Total: ${cheese.toString()}`
+}
+
+function drawCheeseIncrease() {
+  const cheeseIncreaseElem = document.getElementById('clickIncrease')
+  const clickIncreaseParagraph = cheeseIncreaseElem.querySelector('p')
+  clickIncreaseParagraph.innerText = `+${clickIncrease.toString()}`
+}
+
+
 
 //!SECTION
 
