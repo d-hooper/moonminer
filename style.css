@@ -1,3 +1,7 @@
 .moon {
   filter: hue-rotate(150deg);
 }
+
+.text-shadow {
+  text-shadow: 2px 2px 3px #000;
+}

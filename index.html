@@ -27,14 +27,17 @@
       <div class="row justify-content-center">
         <div class="col-8">
           <div class="text-center">
-            <img onclick="mine()" class="moon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Green_sunny_circle_04.png/600px-Green_sunny_circle_04.png?20240309122243">
+            <img onclick="mine()" class="moon"
+                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Green_sunny_circle_04.png/600px-Green_sunny_circle_04.png?20240309122243">
           </div>
         </div>
       </div>
     </div>
 
+
     <div class="container">
-      <div class="row justify-content-center align-items-center mt-3">
+      <!-- SECTION Increase / Total Stats -->
+      <div class="row justify-content-center align-items-end mt-5">
         <div class="col-2">
           <div id="clickIncrease" class="bg-warning rounded-4 fs-4 d-flex justify-content-around py-2">
             <p class="mb-0">+1</p>
@@ -42,8 +45,8 @@
           </div>
         </div>
         <div class="col-4">
-          <div id="cheese" class="bg-success text-light rounded-4 fs-4 d-flex justify-content-around px-2 py-4">
-            <p class="mb-0">Cheese Total: 0</p>
+          <div id="cheese" class="bg-success text-light rounded-4 fs-2 d-flex justify-content-around px-2 py-4">
+            <p class="mb-0">Mining Total: 0</p>
           </div>
         </div>
         <div class="col-2">
@@ -51,14 +54,120 @@
             <p class="mb-0">+0</p>
             <div>
               <span class="mdi mdi-timer"></span>
-              <span class="mdi mdi-timer-3"></span>
             </div>
           </div>
         </div>
+        <!-- !SECTION -->
+      </div>
 
+      <div class="row justify-content-center align-items-start mt-2">
+        <!-- SECTION Purchase Upgrades -->
+        <div class="col-6">
+          <section class="bg-warning rounded-4 fs-4 d-flex justify-content-around py-3 text-white text-shadow">
+            <!-- NOTE Click purchases -->
+            <div class="col-4">
+              <div id="clickPurchase">
+                <h2 class="text-uppercase text-center fs-5 fw-bold">Click Upgrades</h2>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                  <button class="btn btn-danger p-3" type="button">
+                    50
+                    <span class="mdi mdi-cheese"></span>
+                  </button>
+                  <p class="mb-0">
+                    Knife +1
+                  </p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                  <button class="btn btn-danger p-3" type="button">
+                    250
+                    <span class="mdi mdi-cheese"></span>
+                  </button>
+                  <p class="mb-0">
+                    Drill +5
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- NOTE Auto purchases -->
+            <div class="col-6">
+              <div id="autoPurchase">
+                <h2 class="text-uppercase text-center fs-5 fw-bold">Click Upgrades</h2>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                  <p class="mb-0">
+                    Astronaut
+                  </p>
+                  <button class="btn btn-danger p-3" type="button">
+                    1000
+                    <span class="mdi mdi-cheese"></span>
+                  </button>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                  <p class="mb-0">
+                    Space Station
+                  </p>
+                  <button class="btn btn-danger p-3" type="button">
+                    10000
+                    <span class="mdi mdi-cheese"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- !SECTION -->
+        <!-- SECTION Upgrades Equipped -->
+        <div class="col-6">
+          <section class="bg-warning rounded-4 fs-4 d-flex justify-content-around py-3 text-white text-shadow">
+            <div class="col-4">
+              <div id="clickStats">
+                <h2 class="text-uppercase text-center fs-5 fw-bold">click stats</h2>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                  <span class="fs-3 fw-bold border border-white rounded-2 p-2">0</span>
+                  <p class="mb-0">
+                    Knife
+                    <span class="mdi mdi-arrow-right"></span>
+                  </p>
+                  <span class="fs-3 fw-bold border border-white rounded-2 p-2">0</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                  <span class="fs-3 fw-bold border border-white rounded-2 p-2">0</span>
+                  <p class="mb-0">
+                    Drill
+                    <span class="mdi mdi-arrow-right"></span>
+                  </p>
+                  <span class="fs-3 fw-bold border border-white rounded-2 p-2">0</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div id="autoStats">
+                <h2 class="text-uppercase text-center fs-5 fw-bold">Automatic Stats</h2>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                  <span class="fs-3 fw-bold border border-white rounded-2 p-2">0</span>
+                  <p class="mb-0">
+                    Astronaut
+                    <span class="mdi mdi-timer"></span>
+                    <span class="mdi mdi-timer-3"></span>
+                  </p>
+                  <span class="fs-3 fw-bold border border-white rounded-2 p-2">0</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2">
+                  <span class="fs-3 fw-bold border border-white rounded-2 p-2">0</span>
+                  <p class="mb-0">
+                    Station
+                    <span class="mdi mdi-timer"></span>
+                    <span class="mdi mdi-timer-10"></span>
+                  </p>
+                  <span class="fs-3 fw-bold border border-white rounded-2 p-2">0</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- !SECTION -->
       </div>
     </div>
-  
+
   </main>
 
   <footer>

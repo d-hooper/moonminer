@@ -23,7 +23,7 @@ function mine() {
 function drawCheeseTotal() {
   const cheeseElem = document.getElementById('cheese')
   const cheeseValue = cheeseElem.querySelector('p')
-  cheeseValue.innerText = `Cheese Total: ${cheese.toString()}`
+  cheeseValue.innerText = `Mining Total: ${cheese.toString()}`
 }
 
 function drawCheeseIncrease() {
