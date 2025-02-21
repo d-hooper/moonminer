@@ -23,7 +23,7 @@
 
   <main>
 
-    <div class="container mt-5">
+    <div class="container">
       <div class="row justify-content-center">
         <div class="col-8">
           <div class="text-center">
@@ -37,7 +37,7 @@
 
     <div class="container">
       <!-- SECTION Increase / Total Stats -->
-      <div class="row justify-content-center align-items-end mt-5">
+      <div class="row justify-content-center align-items-end mt-2">
         <div class="col-2">
           <div id="clickIncrease" class="bg-warning rounded-4 fs-4 d-flex justify-content-around py-2">
             <p class="mb-0">+1</p>
@@ -46,7 +46,7 @@
         </div>
         <div class="col-4">
           <div id="cheese" class="bg-success text-light rounded-4 fs-2 d-flex justify-content-around px-2 py-4">
-            <p class="mb-0">Mining Total: 0</p>
+            <p class="mb-0">0</p>
           </div>
         </div>
         <div class="col-2">
@@ -69,16 +69,16 @@
               <div id="clickPurchase">
                 <h2 class="text-uppercase text-center fs-5 fw-bold">Click Upgrades</h2>
                 <div class="d-flex justify-content-between align-items-center py-2">
-                  <button class="btn btn-danger p-3" type="button">
+                  <button onclick="getUpgrade(clickUpgrades, 'pickaxe')" class="btn btn-danger p-3 fs-5" type="button">
                     50
                     <span class="mdi mdi-cheese"></span>
                   </button>
                   <p class="mb-0">
-                    Knife +1
+                    Pickaxe +1
                   </p>
                 </div>
                 <div class="d-flex justify-content-between align-items-center py-2">
-                  <button class="btn btn-danger p-3" type="button">
+                  <button onclick="getUpgrade(clickUpgrades, 'drill')" class="btn btn-danger p-3 fs-5" type="button">
                     250
                     <span class="mdi mdi-cheese"></span>
                   </button>
@@ -89,14 +89,14 @@
               </div>
             </div>
             <!-- NOTE Auto purchases -->
-            <div class="col-6">
+            <div class="col-5">
               <div id="autoPurchase">
                 <h2 class="text-uppercase text-center fs-5 fw-bold">Click Upgrades</h2>
                 <div class="d-flex justify-content-between align-items-center py-2">
                   <p class="mb-0">
                     Astronaut
                   </p>
-                  <button class="btn btn-danger p-3" type="button">
+                  <button onclick="getUpgrade(autoUpgrades, 'astronaut')" class="btn btn-danger p-3 fs-5" type="button">
                     1000
                     <span class="mdi mdi-cheese"></span>
                   </button>
@@ -105,7 +105,7 @@
                   <p class="mb-0">
                     Space Station
                   </p>
-                  <button class="btn btn-danger p-3" type="button">
+                  <button onclick="getUpgrade(autoUpgrades, 'rover')" class="btn btn-danger p-3 fs-5" type="button">
                     10000
                     <span class="mdi mdi-cheese"></span>
                   </button>

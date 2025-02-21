@@ -1,3 +1,6 @@
+body {
+  min-height: 100dvh;
+}
 .moon {
   filter: hue-rotate(150deg);
 }
