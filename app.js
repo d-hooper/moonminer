@@ -1,6 +1,6 @@
 //SECTION - STATE
 
-let bank = 10000
+let bank = 20000
 
 let clickIncrease = 1
 
@@ -96,6 +96,24 @@ function buyUpgrade(type, item) {
   drawAutoIncrease()
 }
 
+function autoIncreaseAstronaut() {
+  const item = returnAutoUpgrade('astronaut')
+  if (item.quantity < 1) {
+    return
+  }
+  bank += item.bonus
+  drawCheeseTotal()
+}
+
+function autoIncreaseRover() {
+  const item = returnAutoUpgrade('rover')
+  if (item.quantity < 1) {
+    return
+  }
+  bank += item.bonus
+  drawCheeseTotal()
+}
+
 //!SECTION
 
 //SECTION - DRAW
@@ -145,13 +163,13 @@ function drawAutoUpgradeStats(type) {
   upgradeTotalBonusElem.innerText = foundUpgrade.totalBonus.toString()
 }
 
-
 //!SECTION
 
 //SECTION - PAGE LOAD
 
 drawCheeseTotal()
 
-setInterval()
+setInterval(autoIncreaseAstronaut, 3000)
+setInterval(autoIncreaseRover, 10000);
 
 //!SECTION
