@@ -1,6 +1,6 @@
 //SECTION - STATE / GLOBAL VARIABLES
 
-let bank = 10000
+let bank = 0
 
 let clickIncrease = 1
 
