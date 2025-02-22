@@ -1,6 +1,6 @@
 //SECTION - STATE
 
-let bank = 0
+let bank = 10000
 
 let clickIncrease = 1
 
@@ -75,10 +75,13 @@ function buyUpgrade(type, item) {
 
   item.quantity++
   bank -= item.price
-  let updatedPrice = item.price * 1.2
+  let updatedPrice = item.price * 1.1
   item.price = updatedPrice.toFixed()
   item.totalBonus += item.bonus
+  
   drawCheeseTotal()
+  drawNewPrices(item.name)
+  
   console.log(type)
   console.log(item)
 
@@ -86,14 +89,14 @@ function buyUpgrade(type, item) {
     clickIncrease += item.bonus
     console.log('click increase', clickIncrease)
     drawClickUpgradeStats(item.name)
-    drawClickIncrease()
+    drawIncrease('clickIncrease')
     return
   }
 
   autoIncrease += item.bonus
   console.log('auto increase', autoIncrease)
   drawAutoUpgradeStats(item.name)
-  drawAutoIncrease()
+  drawIncrease('autoIncrease')
 }
 
 function autoIncreaseAstronaut() {
@@ -124,16 +127,19 @@ function drawCheeseTotal() {
   cheeseValue.innerText = `Mining Total: ${bank.toString()}`
 }
 
-function drawClickIncrease() {
-  const clickIncreaseElem = document.getElementById('clickIncrease')
-  const clickIncreaseParagraph = clickIncreaseElem.querySelector('p')
-  clickIncreaseParagraph.innerText = `+${clickIncrease.toString()}`
-}
+function drawIncrease(itemToIncrease) {
+  const increaseElem = document.getElementById(itemToIncrease)
+  const increaseParagraph = increaseElem.querySelector('p')
+  
+  if (itemToIncrease == 'clickIncrease') {
+    itemToIncrease = clickIncrease
+  }
+  else {
+    itemToIncrease = autoIncrease
+  }
 
-function drawAutoIncrease() {
-  const autoIncreaseElem = document.getElementById('autoIncrease')
-  const autoIncreaseParagraph = autoIncreaseElem.querySelector('p')
-  autoIncreaseParagraph.innerText = `+${autoIncrease.toString()}`
+  increaseParagraph.innerText = `+${itemToIncrease.toString()}`
+  console.log(increaseParagraph.innerText);
 }
 
 function drawNewClickPrices(changedItem, name) {
@@ -143,7 +149,7 @@ function drawNewClickPrices(changedItem, name) {
   newlyPricedElems.innerText = `${foundItem.price.toString()} 🧀`
 
   console.log(newlyPricedElems.innerText)
-  
+
 }
 function drawNewAutoPrices(changedItem, name) {
   const newlyPricedElems = document.getElementById(changedItem)
@@ -152,7 +158,28 @@ function drawNewAutoPrices(changedItem, name) {
   newlyPricedElems.innerText = `${foundItem.price.toString()} 🧀`
 
   console.log(newlyPricedElems.innerText)
-  
+
+}
+
+function drawNewPrices(itemName) {
+  if (itemName == 'pickaxe') {
+    drawNewClickPrices('buyPickaxe', 'pickaxe')
+    return
+  }
+  if (itemName == 'drill') {
+    drawNewClickPrices('buyDrill', 'drill')
+    return
+  }
+  if (itemName == 'astronaut') {
+    drawNewAutoPrices('buyAstronaut', 'astronaut')
+    return
+  }
+  if (itemName == 'rover') {
+    drawNewAutoPrices('buyRover', 'rover')
+    return
+  }
+    
+  throw new Error("Incorrect ID or Item Name supplied.");
 }
 
 function drawClickUpgradeStats(type) {
