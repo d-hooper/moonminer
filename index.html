@@ -23,7 +23,7 @@
 
   <main>
 
-    <div class="container">
+    <div class="container mt-3">
       <div class="row justify-content-center">
         <div class="col-8">
           <div class="text-center">
@@ -33,22 +33,27 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container mt-4">
       <div class="row justify-content-center align-items-end">
         <div class="col-6 col-md-2">
-          <div id="clickIncrease" class="bg-warning bg-opacity-75 text-light text-shadow rounded-4 fs-4 d-flex justify-content-around py-2">
+          <div id="clickIncrease"
+               class="bg-warning bg-opacity-75 text-light text-shadow rounded-4 fs-4 d-flex justify-content-around py-2"
+               title="How much each mining click earns">
             <p class="mb-0">+1</p>
             <span class="mdi mdi-cursor-pointer"></span>
           </div>
         </div>
         <div class="col-8 col-md-4">
           <div id="cheese"
-               class="bg-info bg-opacity-75 text-shadow text-light rounded-4 fs-2 d-flex justify-content-around px-2 py-4">
+               class="bg-info text-light bg-opacity-75 text-shadow text-light rounded-4 fs-2 d-flex justify-content-around px-2 py-4"
+               title="Total number of resources">
             <p class="mb-0">0</p>
           </div>
         </div>
         <div class="col-6 col-md-2">
-          <div id="autoIncrease" class="bg-warning bg-opacity-75 text-light text-shadow rounded-4 fs-4 d-flex justify-content-around py-2">
+          <div id="autoIncrease"
+               class="bg-warning bg-opacity-75 text-light text-shadow rounded-4 fs-4 d-flex justify-content-around py-2"
+               title="How much you earn automatically">
             <p class="mb-0">+0</p>
             <div>
               <span class="mdi mdi-timer"></span>
@@ -58,63 +63,64 @@
       </div>
     </div>
     <div class="container bg-warning rounded-4">
-      <!-- SECTION Increase / Total Stats -->
-
+      <!-- SECTION Purchase Upgrades / Upgrade Stats -->
       <div class="row justify-content-center align-items-start mt-2">
-        <!-- SECTION Purchase Upgrades -->
         <div class="col-md-6">
           <div class="row bg-warning rounded-4 fs-4 justify-content-around py-3 text-white text-shadow">
             <!-- NOTE Click purchases -->
-            <div class="col-4">
-              <div id="clickPurchase">
+            <div class="col-6">
+              <div id="clickPurchases" class="fs-5">
                 <h2 class="text-uppercase text-center fs-5 fw-bold">Click Upgrades</h2>
-                <div class="d-flex justify-content-between align-items-center py-2">
-                  <button onclick="getUpgrade(clickUpgrades, 'pickaxe')" class="btn btn-danger py-1 px-2 fs-4" type="button">
-                    50
-                    <span class="mdi mdi-cheese"></span>
+                <div class="d-flex justify-content-evenly align-items-center py-2">
+                  <button id="buyPickaxe" onclick="getUpgrade(clickUpgrades, 'pickaxe')"
+                          class="btn btn-info text-light text-shadow py-1 px-2 fs-4" type="button"
+                          title="Buy a pickaxe upgrade">
+                    50 🧀
                   </button>
-                  <p class="mb-0">
-                    Pickaxe +1
+                  <p class="mx-2 mb-0">
+                    Pickaxe ⛏️ <br> +1 per click
                   </p>
                 </div>
-                <div class="d-flex justify-content-between align-items-center py-2">
-                  <button onclick="getUpgrade(clickUpgrades, 'drill')" class="btn btn-danger py-1 px-2 fs-4" type="button">
-                    250
-                    <span class="mdi mdi-cheese"></span>
+                <div class="d-flex justify-content-evenly align-items-center py-2">
+                  <button id="buyDrill" onclick="getUpgrade(clickUpgrades, 'drill')"
+                          class="btn btn-info text-light text-shadow py-1 px-2 fs-4" type="button"
+                          title="Buy a drill upgrade">
+                    250 🧀
                   </button>
-                  <p class="mb-0">
-                    Drill +5
+                  <p class="mx-2 mb-0">
+                    Drill 🪛 <br> +5 per click
                   </p>
                 </div>
               </div>
             </div>
             <!-- NOTE Auto purchases -->
-            <div class="col-5">
-              <div id="autoPurchase">
+            <div class="col-6">
+              <div id="autoPurchases" class="fs-5">
                 <h2 class="text-uppercase text-center fs-5 fw-bold">Click Upgrades</h2>
-                <div class="d-flex justify-content-between align-items-center py-2">
+                <div class="d-flex justify-content-evenly align-items-center py-2">
                   <p class="mb-0">
-                    Astronaut
+                    Astronaut 🧑‍🚀 <br> +20 / 3s
                   </p>
-                  <button onclick="getUpgrade(autoUpgrades, 'astronaut')" class="btn btn-danger py-1 px-2 fs-4" type="button">
-                    1000
-                    <span class="mdi mdi-cheese"></span>
+                  <button onclick="getUpgrade(autoUpgrades, 'astronaut')"
+                          class="btn btn-info text-light text-shadow py-1 px-2 fs-4" type="button"
+                          title="Hire an astronaut">
+                    1000 🧀
                   </button>
                 </div>
-                <div class="d-flex justify-content-between align-items-center py-2">
+                <div class="d-flex justify-content-evenly align-items-center py-2">
                   <p class="mb-0">
-                    Rover
+                    Rover 🚙 <br> +100 / 10s
                   </p>
-                  <button onclick="getUpgrade(autoUpgrades, 'rover')" class="btn btn-danger py-1 px-2 fs-4" type="button">
-                    10000
-                    <span class="mdi mdi-cheese"></span>
+                  <button onclick="getUpgrade(autoUpgrades, 'rover')"
+                          class="btn btn-info text-light text-shadow py-1 px-2 fs-4" type="button" title="Buy a rover">
+                    10000 🧀
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- !SECTION -->
+
 
         <!-- NOTE Upgrades Equipped -->
         <div class="col-6">

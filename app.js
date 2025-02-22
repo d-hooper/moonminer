@@ -136,6 +136,24 @@ function drawAutoIncrease() {
   autoIncreaseParagraph.innerText = `+${autoIncrease.toString()}`
 }
 
+function drawNewClickPrices(changedItem, name) {
+  const newlyPricedElems = document.getElementById(changedItem)
+  const foundItem = returnClickUpgrade(name)
+  console.log(newlyPricedElems)
+  newlyPricedElems.innerText = `${foundItem.price.toString()} 🧀`
+
+  console.log(newlyPricedElems.innerText)
+  
+}
+function drawNewAutoPrices(changedItem, name) {
+  const newlyPricedElems = document.getElementById(changedItem)
+  const foundItem = returnAutoUpgrade(name)
+  console.log(newlyPricedElems)
+  newlyPricedElems.innerText = `${foundItem.price.toString()} 🧀`
+
+  console.log(newlyPricedElems.innerText)
+  
+}
 
 function drawClickUpgradeStats(type) {
   const upgradeNameElem = document.getElementById(type)
