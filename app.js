@@ -1,6 +1,6 @@
 //SECTION - STATE
 
-let bank = 20000
+let bank = 0
 
 let clickIncrease = 1
 
