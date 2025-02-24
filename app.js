@@ -84,7 +84,6 @@ function buyUpgrade(type, item) {
   drawCheeseTotal()
   drawNewPrices(item.name)
 
-
   if (type == clickUpgrades) {
     clickIncrease += item.bonus
     drawClickUpgradeStats(item.name)
@@ -92,19 +91,20 @@ function buyUpgrade(type, item) {
     return
   }
 
-//NOTE - Increase Amounts
-
   autoIncrease += item.bonus
   drawAutoUpgradeStats(item.name)
   drawIncrease('autoIncrease')
 }
+
+//NOTE - Calculate Automatic Earnings
 
 function autoIncreaseAstronaut() {
   const item = returnAutoUpgrade('astronaut')
   if (item.quantity < 1) {
     return
   }
-  bank += item.bonus
+  item.totalBonus = item.quantity * item.bonus
+  bank += item.totalBonus
   drawCheeseTotal()
 }
 
@@ -113,7 +113,8 @@ function autoIncreaseRover() {
   if (item.quantity < 1) {
     return
   }
-  bank += item.bonus
+  item.totalBonus = item.quantity * item.bonus
+  bank += item.totalBonus
   drawCheeseTotal()
 }
 
